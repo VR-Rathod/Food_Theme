@@ -21,5 +21,3 @@ else :
     echo '<p>No posts found.</p>';
 endif;
 ?>
-
-<?php get_footer(); ?>

@@ -40,6 +40,11 @@ function mytheme_enqueue_styles() {
         wp_enqueue_style('about-us-style', get_template_directory_uri() . '/assets/css/cal.css');
     }
 
+// Check if we are on a single post page
+    if (is_single()) {
+        wp_enqueue_style('single-post-style', get_template_directory_uri() . '/assets/css/single.css');
+    }
+
     
     wp_enqueue_style('mytheme-style', get_stylesheet_uri());
 }

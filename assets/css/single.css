@@ -1,44 +1,9 @@
-.calendar-navigation {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.calendar-navigation a {
-    text-decoration: none;
-    font-weight: bold;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th,
-td {
-    padding: 10px;
-    text-align: center;
-}
-
-th {
-    background-color: #f1f1f1;
-}
-
-td {
-    border: 1px solid #ddd;
-}
-
-td a {
-    color: #0073aa;
-}
-
 /* General Body Styling */
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
-    margin: 0;
-    padding: 0;
 }
 
 .container {
