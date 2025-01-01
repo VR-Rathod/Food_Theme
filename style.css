@@ -1,0 +1,256 @@
+/*
+Theme Name: Food Theme
+Theme URI: http://example.com/food-theme
+Author: VR rathod
+Author URI: http://example.com
+Description: A custom theme for food-related websites.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: food-theme
+Tags: food, restaurant, blog, custom-theme
+*/
+
+
+/* Index page */
+
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* Header section */
+.site-header {
+    background-color: rgba(255, 0, 0, 0.625);
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: fadeIn 1.5s ease-in-out;
+    -webkit-animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Styling for the site logo */
+.site-header .logo img {
+    width: 111px;
+    height: 111px;
+}
+
+/* Site title and description */
+.site-title {
+    font-size: 36px;
+    color: #333;
+    margin: 0;
+    font-weight: bold;
+}
+
+.site-description {
+    font-size: 18px;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* Navigation Menu */
+
+.main-navigation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.main-navigation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-navigation li {
+    display: inline-block;
+    margin-right: 15px;
+}
+.main-navigation a {
+    font-family: "Inknut Antiqua", serif;
+    font-size: 18px;
+    color: #fcfcfc;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.main-navigation a:hover {
+    color: #080808;
+}
+
+/* index Page */
+/* Content Area with Animations */
+.content-area {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    padding: 60px 30px;
+    text-align: right;
+    /* Aligns text to the right inside the content area */
+    animation: fadeInUp 1.5s ease-out;
+    background: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent black background */
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    /* Adding a blur effect behind the text */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover Effect for the Content Area */
+.content-area:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Headline Styling */
+.headline h1 {
+    font-family: 'Modak' ;
+    font-size: 5rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    justify-content: center;
+    display: flex;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    margin-bottom: 1.5rem;
+    color: #ffac47;
+    /* Tomato color for the title */
+    opacity: 0;
+    animation: fadeInTitle 1s ease-out forwards;
+}
+
+.headline p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 10px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #f0e68c;
+    /* Light color for paragraph */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInText 1.5s ease-out forwards;
+}
+
+/* Title Text Animation */
+@keyframes fadeInTitle {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Paragraph Text Animation */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button Styles (Optional, for CTA) */
+.headline a {
+    display: inline-block;
+    background-color: #ff6347;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.headline a:hover {
+    background-color: #ff4500;
+    transform: translateY(-3px);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .headline h1 {
+        font-size: 2.5rem;
+    }
+
+    .headline p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .headline h1 {
+        font-size: 2rem;
+    }
+
+    .headline p {
+        font-size: 0.9rem;
+    }
+
+    .headline a {
+        padding: 10px 25px;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.footer .contact-info a{
+    text-decoration: none;
+    color: wheat;
+    font-family: 'Inknut Antiqua', serif;
+}
+
+.footer .social-media a {
+    margin: 0 15px;
+
+}
+
+.footer .social-media img {
+    width: 80px;
+    height: 50px;
+}
