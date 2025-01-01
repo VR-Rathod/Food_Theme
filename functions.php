@@ -37,7 +37,7 @@ function mytheme_enqueue_styles() {
     // Check if we are on the 'events-calendar' page
     if (is_page('events-calendar')) {
         // Enqueue a specific style for the 'events-calendar' page
-        wp_enqueue_style('about-us-style', get_template_directory_uri() . '/assets/css/calender.css');
+        wp_enqueue_style('about-us-style', get_template_directory_uri() . '/assets/css/cal.css');
     }
 
     
