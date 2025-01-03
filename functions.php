@@ -37,7 +37,7 @@ function mytheme_enqueue_styles() {
     // Check if we are on the 'events-calendar' page
     if (is_page('events-calendar')) {
         // Enqueue a specific style for the 'events-calendar' page
-        wp_enqueue_style('about-us-style', get_template_directory_uri() . '/assets/css/cal.css');
+        wp_enqueue_style('events-calendar-style', get_template_directory_uri() . '/assets/css/cal.css');
     }
 
 // Check if we are on a single post page
@@ -57,3 +57,27 @@ add_action('wp_enqueue_scripts', 'mytheme_enqueue_styles');
 <?php 
  require get_template_directory() . '/assets/php/calanderpost.php';
 ?>
+
+<!-- Js Files  -->
+<?php
+function enqueue_fullcalendar_es_module() {
+    wp_enqueue_script('calendar-esm', get_template_directory_uri() . 'assets/js/calendar-esm.js', array(), null, true);
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_fullcalendar_es_module');
+
+// Enqueue the script in your theme's functions.php
+function enqueue_calendar_script() {
+    wp_enqueue_script('fullcalendar', 'https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js', [], null, true);
+    wp_enqueue_script('events-calendar', get_template_directory_uri() . 'assets/js/events-calendar.js', ['fullcalendar'], null, true);
+    
+    // Localize the script to pass the AJAX URL to JavaScript
+    wp_localize_script('events-calendar', 'eventsCalendar', [
+        'ajax_url' => admin_url('admin-ajax.php') // URL to call the AJAX handler
+    ]);
+}
+add_action('wp_enqueue_scripts', 'enqueue_calendar_script');
+
+
+?>
+

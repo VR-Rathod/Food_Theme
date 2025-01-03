@@ -1,178 +1,66 @@
-.calendar-navigation {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.calendar-navigation a {
-    text-decoration: none;
-    font-weight: bold;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th,
-td {
-    padding: 10px;
-    text-align: center;
-}
-
-th {
-    background-color: #f1f1f1;
-}
-
-td {
-    border: 1px solid #ddd;
-}
-
-td a {
-    color: #0073aa;
-}
-
-/* General Body Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-/* Header Styling */
-.entry-header {
-    background-color: #fff;
-    padding: 30px 20px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #f1f1f1;
-}
-
-.entry-title {
-    font-size: 36px;
-    font-weight: bold;
-    color: #333;
-    margin: 0;
-    text-align: center;
-}
-
-/* Entry Content Styling */
-.entry-content {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-.entry-content p {
-    font-size: 18px;
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-.entry-content img {
-    max-width: 100%;
-    height: auto;
-    margin: 20px 0;
-    border-radius: 8px;
-}
-
-.entry-content a {
-    color: #ff6600;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.entry-content a:hover {
-    color: #cc5200;
-    text-decoration: underline;
-}
-
-/* Tags Footer Styling */
-.entry-footer {
-    background-color: #fff;
-    padding: 10px 20px;
-    border-top: 2px solid #f1f1f1;
-    text-align: center;
+/* Container for Event Cards */
+.events-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
     margin-top: 30px;
 }
 
-.tag-links {
-    font-size: 16px;
-    color: #555;
-}
-
-.tag-links a {
-    color: #ff6600;
-    margin: 0 8px;
-    text-decoration: none;
-    font-weight: normal;
-}
-
-.tag-links a:hover {
-    color: #cc5200;
-}
-
-/* No Posts Found Styling */
-.no-posts {
-    background-color: #fff;
-    padding: 30px;
-    text-align: center;
+/* Each Event Card Style */
+.event-card {
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.no-posts p {
-    font-size: 20px;
-    color: #555;
+/* Event Title */
+.event-card h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Event Details (Location, Date, etc.) */
+.event-card p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #666;
+}
+
+/* Location Style */
+.event-card .event-location,
+.event-card .event-dates {
+    font-style: italic;
+}
+
+/* Description Style */
+.event-card .event-description {
+    margin-top: 10px;
+    font-size: 0.95em;
+    color: #444;
+}
+
+/* Hover Effects for Event Cards */
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event-card a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #0073e6;
+    text-decoration: none;
     font-weight: bold;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
-
-    .entry-header {
-        padding: 20px 10px;
-    }
-
-    .entry-title {
-        font-size: 28px;
-    }
-
-    .entry-content {
-        padding: 15px;
-    }
-
-    .entry-footer {
-        padding: 10px;
-    }
-
-    .tag-links a {
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .entry-title {
-        font-size: 24px;
-    }
-
-    .entry-content p {
-        font-size: 16px;
-    }
-
-    .entry-footer {
-        padding: 8px;
-    }
+.event-card a:hover {
+    color: #005bb5;
+    text-decoration: underline;
 }
