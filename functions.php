@@ -39,15 +39,20 @@ function mytheme_enqueue_styles() {
         // Enqueue a specific style for the 'events-calendar' page
         wp_enqueue_style('events-calendar-style', get_template_directory_uri() . '/assets/css/cal.css');
     }
+    
+    // Check if we are on the 'events-calendar' page
+    if (is_page('online-ordering')) {
+        wp_enqueue_style('events-calendar-style', get_template_directory_uri() . '/assets/css/fooditems.css');
+    }
 
 // Check if we are on a single post page
     if (is_single()) {
         wp_enqueue_style('single-post-style', get_template_directory_uri() . '/assets/css/single.css');
     }
-
     
     wp_enqueue_style('mytheme-style', get_stylesheet_uri());
 }
+
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_styles');
 
 ?>
@@ -56,12 +61,14 @@ add_action('wp_enqueue_scripts', 'mytheme_enqueue_styles');
 <!-- custom php Files -->
 <?php 
  require get_template_directory() . '/assets/php/calanderpost.php';
+ require get_template_directory() . '/assets/php/fooditems.php';
 ?>
 
 <!-- Js Files  -->
 <?php
 function enqueue_fullcalendar_es_module() {
     wp_enqueue_script('calendar-esm', get_template_directory_uri() . 'assets/js/calendar-esm.js', array(), null, true);
+
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_fullcalendar_es_module');

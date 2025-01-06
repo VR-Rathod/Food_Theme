@@ -1,6 +1,7 @@
 <?php
 /**
  * Template Name: EventCalendar
+ * 
  */
 ?>
 
@@ -15,9 +16,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
     <title>Calendar</title>
 </head>
+
 <body>
     <!-- Calendar Container -->
-    <div id="calendar"></div>
+     <div class="design-cal">
+        <div id="calendar"></div>
 
     <!-- Event Cards Container -->
     <div class="events-container">
@@ -28,6 +31,7 @@
             'posts_per_page' => -1, // Get all events
             'post_status' => 'publish',
         );
+        
         $event_query = new WP_Query($args);
 
         // Check if there are any events
@@ -45,6 +49,7 @@
                 $start_datetime = $start_date . ' ' . $start_time;
                 $end_datetime = $end_date && $end_time ? $end_date . ' ' . $end_time : $start_datetime;
                 ?>
+
                 <div class="event-card">
                     <h3><?php the_title(); ?></h3>
                     <p class="event-location"><strong>Location:</strong> <?php echo esc_html($event_location); ?></p>
@@ -74,9 +79,9 @@
                         data: {
                             action: 'get_events', // The action we defined in functions.php
                         },
+
                         success: function(response) {
                             if (response.success) {
-                                // Log the response data for debugging
                                 console.log(response.data);  // Log events data
 
                                 // Parse the events data to FullCalendar format
@@ -111,14 +116,16 @@
                         <p><strong>End:</strong> ${event.end ? event.end.toLocaleString() : 'N/A'}</p>
                         <a href="${event.url}" target="_blank">View Event Details</a>
                     `;
+
                     alert(eventDetails);
                 },
             });
 
             calendar.render();
         });
-    </script>
 
+    </script>
+</div>
 </body>
 </html>
 
