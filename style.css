@@ -11,14 +11,13 @@ Text Domain: food-theme
 Tags: food, restaurant, blog, custom-theme
 */
 
-
 /* Index page */
-
 * {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
+
 /* Header section */
 .site-header {
     background-color: rgba(255, 0, 0, 0.625);
@@ -28,8 +27,8 @@ Tags: food, restaurant, blog, custom-theme
     position: sticky;
     top: 0;
     z-index: 1000;
-    animation: fadeIn 1.5s ease-in-out;
-    -webkit-animation: fadeIn 1.5s ease-in-out;
+    animation: fadeIn 0.9s ease-in-out;
+    -webkit-animation: fadeIn 0.9s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -185,7 +184,6 @@ Tags: food, restaurant, blog, custom-theme
     }
 }
 
-/* Button Styles (Optional, for CTA) */
 .headline a {
     display: inline-block;
     background-color: #ff6347;

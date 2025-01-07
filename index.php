@@ -2,7 +2,8 @@
 get_header(); // Include the header.php file
 ?>
 
-<section class="site-content" <?php $background_image_url = get_template_directory_uri() . '/assets/matirials/bgs.jpg'; ?> <?php body_class();  ?> style="background-image: url('<?php echo $background_image_url; ?>'); background-size: cover; background-position: center; background-repeat: no-repeat; height: 100vh;   display: flex;
+<section class="site-content" <?php $background_image_url = get_template_directory_uri() . '/assets/matirials/bgs.jpg'; ?> <?php body_class();  ?> style="background-image: url('<?php echo $background_image_url; ?>'); 
+background-size: cover; background-position: center; background-repeat: no-repeat; height: 100vh; display: flex;
   justify-content: flex-end; align-items: center; color: white;
   overflow: hidden; transition: background-image 0.5s ease; " >
     <div class="content-area">
@@ -15,6 +16,4 @@ get_header(); // Include the header.php file
     </div>
 </section>
 
-<?php
-get_footer();
-?>
+<?php get_footer(); ?>

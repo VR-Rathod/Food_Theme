@@ -10,11 +10,11 @@ if ( have_posts() ) :
 
             <div class="entry-content">
                 <?php the_content(); ?>
-            </div><!-- .entry-content -->
+            </div><!-- entry-content -->
 
             <footer class="entry-footer">
                 <?php the_tags( '<span class="tag-links">', '', '</span>' ); ?>
-            </footer><!-- .entry-footer -->
+            </footer><!-- entry-footer -->
         </article><!-- #post-## -->
     <?php endwhile;
 else :
