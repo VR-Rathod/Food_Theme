@@ -12,9 +12,8 @@ background-size: cover; background-position: center; background-repeat: no-repea
 
     <h1>Table Reservation</h1>
     
-    <?php 
-    // Call the reservation form using do_shortcode
-    echo do_shortcode('[table_reservation_form]'); 
+    <?php
+    echo do_shortcode('[table_reservation_form]'); // This Is rendering Form
     ?>
 </div>
 

@@ -20,7 +20,7 @@
     <p>Sweet Food began with a simple dream: to bring people together over delicious, heartwarming meals. Founded by Bast safe Khajana in 2021, our restaurant is built on the values of quality, passion, and community. Our journey has been filled with creativity, hard work, and lots of smiles...</p>
     <div class="story-images">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/matirials/saf_founder.png" alt="Founder">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/matirials/restrorant.jpg" alt="Restaurant Opening">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/matirials/restrorant.jpeg" alt="Restaurant Opening">
     </div>
 </section>
 

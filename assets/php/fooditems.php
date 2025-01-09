@@ -18,6 +18,7 @@ function create_food_post_type() {
             'parent_item_colon' => '',
             'menu_name' => 'Food Items'
         ),
+        
         'public' => true,
         'has_archive' => true,
         'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),

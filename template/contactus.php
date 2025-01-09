@@ -89,7 +89,7 @@
             <!-- Embedded Google Map Section (Optional) -->
             <div class="google-map">
                 <h3>Visit Us:</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.541138780258!2d72.53870437607308!3d23.113887512912775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84b76cc89507%3A0x9a9e7c07129fa669!2sKrishang%20Technolab!5e0!3m2!1sen!2sin!4v1735639042850!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.5412736511685!2d72.53870437615731!3d23.11388257910987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84b76cc89507%3A0x9a9e7c07129fa669!2sKrishang%20Technolab!5e0!3m2!1sen!2sin!4v1736331370801!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             

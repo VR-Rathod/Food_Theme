@@ -16,8 +16,20 @@ if ( have_posts() ) :
                 <?php the_tags( '<span class="tag-links">', '', '</span>' ); ?>
             </footer><!-- entry-footer -->
         </article><!-- #post-## -->
+
+        <!-- Add Comment Section -->
+        <?php
+        if ( comments_open() || get_comments_number() ) :
+            comments_template(); // This loads the comments.php template
+        endif;
+        ?>
+
+
+
     <?php endwhile;
 else :
     echo '<p>No posts found.</p>';
 endif;
 ?>
+
+<?php get_footer(); ?>
