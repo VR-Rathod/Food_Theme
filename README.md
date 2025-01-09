@@ -1,6 +1,8 @@
 # Food Theme WordPress Template
 
-This is a WordPress theme template designed with a food theme in mind. It is created for educational purposes to help users understand how to build and structure a WordPress theme.
+This is a WordPress theme template designed with a food theme in mind. It is created for educational purposes to help users understand how to build and structure a WordPress theme. 
+
+**All Ressource Used As Education Purpose I Don't Anything**
 
 ## Features
 
