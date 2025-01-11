@@ -64,6 +64,7 @@ function my_theme_enqueue_scripts() {
     wp_enqueue_script('jquery');  // This ensures jQuery is loaded
     wp_enqueue_script('fullcalendar', 'https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js', array('jquery'), null, true); // Ensure FullCalendar is loaded after jQuery
     wp_enqueue_script('events-calendar', get_template_directory_uri() . '/js/events-calendar.js', array('jquery', 'fullcalendar'), null, true);  // Your custom JS file that depends on jQuery and FullCalendar
+      wp_enqueue_script('custom-calendar', get_template_directory_uri() . '/js/custom-calendar.js', array('jquery', 'fullcalendar-js'), null, true);
 }
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_scripts');
 

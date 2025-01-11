@@ -23,95 +23,103 @@
     </div>
 
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
-            const calendarEl = document.getElementById('calendar');
+      document.addEventListener('DOMContentLoaded', function () {
+    const calendarEl = document.getElementById('calendar');
 
-            // Dummy JSON data for events
-            const dummyEvents = [
-                {
-                    title: 'What if ?',
-                    start: '2025-01-12T14:08:00',
-                    end: '2025-01-13T15:08:00',
-                    location: 'USA',
-                    description: 'Special Managed By Avengers End-Game. Event You can Get chance to meet Your Hero For Visit in the world By getting lucky Ticket for plane.',
-                    url: 'http://localhost/restro/events/what-if/'
-                },
-                {
-                    title: 'Event 1',
-                    start: '2025-01-02T01:24:00',
-                    end: '2025-01-07T13:25:00',
-                    location: 'Ahmedabad',
-                    description: 'This is For Testing',
-                    url: 'http://localhost/restro/events/event-1/'
-                },
-                {
-                    title: 'Party Plote',
-                    start: '2025-01-11T02:29:00',
-                    end: '2025-01-12T17:26:00',
-                    location: 'Mumbai',
-                    description: 'This is checking System',
-                    url: 'http://localhost/restro/events/party-plote/'
-                },
-                {
-                    title: 'Sec Event',
-                    start: '2025-01-30T03:09:00',
-                    end: '2025-01-31T05:10:00',
-                    location: 'San Francisco',
-                    description: 'This is Descriptions On the Video',
-                    url: 'http://localhost/restro/events/sec-event/'
-                },
-                {
-                    title: 'Share Is Care',
-                    start: '2025-01-03T15:45:00',
-                    end: '2025-01-10T17:45:00',
-                    location: 'Your House',
-                    description: 'You can Visit Us for free lunch because We Have Extra food And I Don\'t Want to waste. so Contact Us For Free Donation',
-                    url: 'http://localhost/restro/events/title/'
-                },
-                {
-                    title: 'Jan Samaroh',
-                    start: '2025-01-22T15:51:00',
-                    end: '2025-01-24T19:48:00',
-                    location: 'Rokdiya Hanuman Mandir',
-                    description: 'Ram Bhajan With Sundarkand Path',
-                    url: 'http://localhost/restro/events/event/'
+    // Function to check if events are already stored in localStorage
+    function getStoredEvents() {
+        let storedEvents = localStorage.getItem('calendarEvents');
+        return storedEvents ? JSON.parse(storedEvents) : [];
+    }
+
+    // Function to store events in localStorage
+    function storeEvents(events) {
+        localStorage.setItem('calendarEvents', JSON.stringify(events));
+    }
+
+   // Function to fetch events from the server
+function fetchEvents() {
+    const url = new URL('<?php echo admin_url('admin-ajax.php'); ?>');
+    url.searchParams.append('action', 'get_events'); // Append the action to the query string
+
+    return fetch(url)
+        .then(response => response.text()) // Get the response as text first
+        .then(text => {
+            // Remove all HTML comments using regex
+            const cleanedText = text.replace(/<!--[\s\S]*?-->/g, '').trim();
+
+            // Now parse the cleaned text as JSON
+            try {
+                const data = JSON.parse(cleanedText);
+                if (data.success) {
+                    return data.data; // Return the events data
+                } else {
+                    throw new Error('Error fetching events');
                 }
-            ];
-
-            // Initialize FullCalendar
-            const calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                
-                // Instead of AJAX, just load the dummy events directly
-                events: dummyEvents,
-
-                eventClick: function(info) {
-                    const event = info.event;
-                    const eventDetails = `
-                        <h2>${event.title}</h2>
-                        <p><strong>Location:</strong> ${event.extendedProps.location}</p>
-                        <p><strong>Description:</strong> ${event.extendedProps.description}</p>
-                        <p><strong>Start:</strong> ${event.start.toLocaleString()}</p>
-                        <p><strong>End:</strong> ${event.end ? event.end.toLocaleString() : 'N/A'}</p>
-                        <a href="${event.url}" target="_blank">View Event Details</a>
-                    `;
-                    alert(eventDetails);
-                },
-
-                // Use eventContent to customize how the event appears in the calendar
-                eventContent: function(info) {
-                    // Customize the content structure here
-                    return {
-                        html: `
-                            <div class="event-title">${info.event.title}</div>
-                            <div class="event-location">${info.event.extendedProps.location}</div>`
-                    };
-                },
-            });
-
-            // Render the calendar
-            calendar.render();
+            } catch (error) {
+                console.error('Error parsing the response:', error);
+                return [];
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            return [];
         });
+}
+
+
+    // Initialize FullCalendar
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        events: function (fetchInfo, successCallback, failureCallback) {
+            // Check if events are stored in localStorage
+            let events = getStoredEvents();
+
+            // If events are not already stored, fetch from the server
+            if (events.length === 0) {
+                fetchEvents()
+                    .then(fetchedEvents => {
+                        storeEvents(fetchedEvents); // Store fetched events in localStorage
+                        successCallback(fetchedEvents); // Pass the events to FullCalendar
+                    })
+                    .catch(() => {
+                        failureCallback('Error fetching events');
+                    });
+            } else {
+                // If events are in localStorage, use them directly
+                successCallback(events);
+            }
+        },
+        eventClick: function (info) {
+            const event = info.event;
+            const eventDetails = `
+                <h2>${event.title}</h2>
+                <p><strong>Location:</strong> ${event.extendedProps.location}</p>
+                <p><strong>Description:</strong> ${event.extendedProps.description}</p>
+                <p><strong>Start:</strong> ${event.start.toLocaleString()}</p>
+                <p><strong>End:</strong> ${event.end ? event.end.toLocaleString() : 'N/A'}</p>
+                <a href="${event.url}" target="_blank">View Event Details</a>
+            `;
+            alert(eventDetails); // Show event details
+        },
+        eventContent: function (info) {
+            return {
+                html: `
+                    <div class="event-title">${info.event.title}</div>
+                    <div class="event-location">${info.event.extendedProps.location}</div>`
+            };
+        }
+    });
+
+    // Render the calendar
+    calendar.render();
+
+    // Refresh the calendar periodically to check for new events
+    setInterval(function () {
+        calendar.refetchEvents();
+    }, 60000); // Every 1 minute
+});
+
     </script>
 
 </body>
